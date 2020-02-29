@@ -1,0 +1,14 @@
+﻿  MyDlg1.cpp
+  lab4d1709.cpp
+F:\Vano\proga\ООП\lab5(01.11)\lab4d1709.cpp(298,29): warning C4244: =: преобразование "LRESULT" в "int", возможна потеря данных
+F:\Vano\proga\ООП\lab5(01.11)\lab4d1709.cpp(309,29): warning C4244: =: преобразование "LRESULT" в "int", возможна потеря данных
+F:\Vano\proga\ООП\lab5(01.11)\lab4d1709.cpp(278,12): warning C4101: wmEvent: неиспользованная локальная переменная
+  shape_editor.cpp
+F:\Vano\proga\ООП\lab5(01.11)\lab4d1709.cpp(278,6): warning C4101: wmId: неиспользованная локальная переменная
+F:\Vano\proga\ООП\lab5(01.11)\shape_editor.cpp(217,30): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+F:\Vano\proga\ООП\lab5(01.11)\shape_editor.cpp(227,52): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+F:\Vano\proga\ООП\lab5(01.11)\shape_editor.cpp(228,52): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  toolbar.cpp
+  Создание кода...
+F:\Vano\proga\ООП\lab5(01.11)\shape_editor.cpp(229,52): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  lab4d1709.vcxproj -> F:\Vano\proga\ООП\lab5(01.11)\x64\Debug\lab4d1709.exe
