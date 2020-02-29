@@ -1,0 +1,8 @@
+﻿  module1.cpp
+  module2.cpp
+D:\proga\lab1(11.9)\resource2.h(7,1): warning C4005:  IDOK: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winuser.h(11108): message :  см. предыдущее определение "IDOK"
+D:\proga\lab1(11.9)\resource2.h(8,1): warning C4005:  IDCANCEL: изменение макроопределения
+  Создание кода...
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winuser.h(11109): message :  см. предыдущее определение "IDCANCEL"
+  lab1(11.9).vcxproj -> D:\proga\lab1(11.9)\Debug\lab1(11.9).exe

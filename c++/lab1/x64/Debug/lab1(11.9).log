@@ -1,0 +1,5 @@
+﻿  lab1(11.9).cpp
+  module1.cpp
+  Создание кода...
+D:\proga\lab1(11.9)\module1.cpp(30,13): warning C4244:  инициализация: преобразование "LRESULT" в "int", возможна потеря данных
+  lab1(11.9).vcxproj -> D:\proga\lab1(11.9)\x64\Debug\lab1(11.9).exe
