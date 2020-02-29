@@ -1,0 +1,14 @@
+﻿  stdafx.cpp
+  Graphics.cpp
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(27,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(28,15): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(30,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(31,15): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(39,27): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(46,40): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(55,40): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+F:\Vano\proga\ООП\lab62\main\Obj3\Graphics.cpp(60,40): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  Information.cpp
+  Obj3.cpp
+  Создание кода...
+  Obj3.vcxproj -> F:\Vano\proga\ООП\lab62\main\Debug\Obj3.exe
