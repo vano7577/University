@@ -1,0 +1,70 @@
+@startuml BEM_1.0
+
+right header
+<font size=24 color=black>Package: <b>BEM_1.0
+
+end header
+
+title
+<font size=18 color=black>Аналітичний портал
+<font size=16 color=black>ВЕ-модель
+end title
+
+entity "Користувач" as User #LightGreen
+entity "Ім'я користувача" as User.name #LightGreen
+entity "Фото користувача" as User.photo #LightGreen
+entity "Поштова адреса користувача" as User.email #LightGreen
+
+User.name -d-*User
+User.photo -d-*User
+User.email -d-*User
+
+entity "Роль" as Role #LightBlue
+entity "Назва ролі" as Role.name #LightBlue
+entity "Опис ролі" as Role.description #LightBlue
+
+Role.description --* Role
+Role.name --* Role
+
+entity "Доступ" as Access #Yellow
+
+Access "0,*" -u- "1,1" Role 
+Access "0,*" -- "1,1" User
+
+entity "Опитування" as Poll #LightCoral
+entity "Шаблон опитування" as Poll.template #LightCoral
+
+Access "0,*" -right- "1,1" Poll
+Poll.template "1,1" --o "0,*" Poll
+
+entity "Звіт" as Report #LightCoral
+
+Report "0,*" --o "1.1" Poll
+
+entity "Посилання" as Link #GoldenRod
+entity "Тег" as Tag #GoldenRod
+entity "Назва тегу" as Tag.name #GoldenRod
+
+Link "0,*" -u- "1,1" Poll
+Tag "1,1" -u- "0,*" Link
+Tag.name -right-* Tag
+
+entity "Питання" as Question #LightSeaGreen
+entity "Номер питання" as Question.number #LightSeaGreen
+entity "Мультимедійне питання" as Question.multimedia #LightSeaGreen
+entity "Варіант відповіді" as PossibleAnswer #LightSeaGreen
+
+Poll "1,1" - "1,*" Question
+Question "1,1" -- "1,*" PossibleAnswer
+Question.number -u-* Question
+Question.multimedia -right-*Question
+
+
+right footer
+
+Аналітичний портал. Модель прецедентів.
+НТУУ КПІ ім.І.Сікорського
+Киів-2020
+end footer
+
+@enduml

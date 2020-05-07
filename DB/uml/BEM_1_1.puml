@@ -1,0 +1,141 @@
+@startuml BEM_1.1
+
+right header
+<font size=24 color=black>Package: <b>BEM_1.1
+
+end header
+
+title
+<font size=18 color=black>Система організації та управління опитування експертів
+<font size=16 color=black>BE-модель
+end title
+
+entity "Користувач" as User #LightGreen
+entity "Ім'я\nкористувача" as User.name #LightGreen
+entity "Фото\nкористувача" as User.photo #LightGreen
+entity "Поштова адреса\nкористувача" as User.email #LightGreen
+
+User.name -d-*User
+User.photo -d-*User
+User.email -d-*User
+
+entity "Роль" as Role #LightBlue
+entity "Назва ролі" as Role.name #LightBlue
+entity "Опис ролі" as Role.description #LightBlue
+
+Role.description --* Role
+Role.name --* Role
+
+entity "ДоступЗДією" as Access #Yellow
+Access "0,*" -u- "1,1" Role 
+Access "0,*" -- "1,1" User
+
+entity "Брав участь" as isTakePart #Yellow
+entity "Час початку дії" as time.start #Yellow
+entity "Час кінець дії" as time.end #Yellow
+isTakePart -* Access
+time.start --* Access
+time.end -* Access
+
+entity "Опитування" as Poll #LightCoral
+entity "Є шаблоном\nопитування" as Poll.isTemplate #LightCoral
+entity "Ідентифікатор\nопитування" as Poll.id #LightCoral
+entity "Назва\nопитування" as Poll.name #LightCoral
+entity "Звіт" as Report #LightCoral
+entity "Вичерпано часу" as Poll.time.used #LightCoral
+entity "Надано часу" as Poll.time.provided #LightCoral
+
+
+Access "0,*" -right- "0,1" Poll
+Poll.isTemplate  ---*  Poll
+Poll.name --* Poll
+Report  --*  Poll
+Poll.id --* Poll
+Poll.time.used  ---* Poll
+Poll.time.provided ---* Poll
+
+entity "Посилання" as Link #GoldenRod
+entity "Тег" as Tag #GoldenRod
+entity "Назва тегу" as Tag.name #GoldenRod
+
+Link "0,*" -u- "1,1" Poll
+Tag "1,1" -u- "0,*" Link
+Tag.name -d-* Tag
+
+entity "Завдання" as Task #FFBB22
+
+
+entity "Питання" as Question #LightSeaGreen
+entity "Ідентифікатор\nпитання" as Question.id #LightSeaGreen
+entity "Значення\nпитання" as Question.value #LightSeaGreen
+
+Question.id -l-* Question
+
+Task "0,*" -- "1,1" Question 
+Question.value -r-* Question 
+
+
+entity "Виділено часу" as timeProvided #F84
+entity "Індентифікатор\nвиділеного часу" as timeProvided.id #F84
+entity "Значення\nвиділеного часу" as timeProvided.value #F84
+timeProvided "0.1" -u- "0.*" Poll
+timeProvided "0.1" -u- "0.*" Question
+timeProvided.id -d-* timeProvided
+timeProvided.value -d-* timeProvided
+
+entity "Відповідь" as Answer #00DD00
+
+entity "Вибір" as Answer.choise #00DD00
+entity "Назва вибору" as Answer.choise.name #00DD00
+entity "Одиничний" as Answer.choise.single #00DD00
+entity "Множинний" as Answer.choise.multiple #00DD00
+
+Poll "1,1" - "0,*" Task
+
+Answer.choise "1,1" - "0.*" Answer
+Answer.choise.name -l-* Answer.choise
+Answer.choise.single ..> Answer.choise: insanceOf
+Answer.choise.multiple ..> Answer.choise: insanceOf
+
+entity "Ідентифікатор\nвідповіді" as Answer.id #00DD00
+entity "Правильність\nекспертної відповіді" as Answer.isExpertCorrect #00DD00
+entity "Являє собою\nправильну відповідь" as Answer.isAnswerCorrect #00DD00
+entity "Значення\nвідповіді" as Answer.value #00DD00
+entity "Назва значення\n відповіді" as Answer.value.name #00DD00
+entity "Власна відповідь" as Answer.value.your #00DD00
+entity "Відповідь автора" as Answer.value.author #00DD00
+Task "0.*" -u- "1.*" Answer 
+Answer.id -u-* Answer
+Answer.isExpertCorrect --* Answer
+Answer.isAnswerCorrect --* Answer
+Answer "0.*  " -r-- "   1.1" Answer.value 
+Answer.value.name -r-* Answer.value
+
+Answer.value.author .u.> Answer.value: insanceOf
+Answer.value.your .u.> Answer.value: insanceOf
+
+entity "Є мультимедія" as isMultimedia #5ff
+entity "Індитифікатор мультимедія" as isMultimedia.id #5ff
+entity "Значення мультимедія" as MultimediaValue #5ff
+entity "Назва значення\nмультимедія" as MultimediaValue.name #5ff
+entity "Картинка" as picture #5ff
+entity "Звук" as sound #5ff
+entity "Відео" as video #5ff
+
+Question "0.*" -- "0.1" isMultimedia
+Answer "0.*" -- "0.1" isMultimedia
+isMultimedia -u-* isMultimedia.id
+MultimediaValue "0.1"--"0.*" isMultimedia
+MultimediaValue.name -l-* MultimediaValue
+picture .u.>MultimediaValue: insanceOf
+sound .u.> MultimediaValue: insanceOf
+video .u.> MultimediaValue: insanceOf
+
+right footer
+
+Аналітичний портал. Business Entity Model.
+НТУУ КПІ ім.І.Сікорського
+Киів-2020
+end footer
+
+@enduml

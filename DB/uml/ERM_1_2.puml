@@ -1,0 +1,82 @@
+@startuml
+
+right header
+<font size=24 color=black>Package: <b>ERM_1.2
+
+end header
+
+title
+<font size=18 color=black> Система організації та управління опитування експертів
+<font size=16 color=black>ER-модель 
+
+
+end title
+
+package "User Profile Management" #ffE {
+	entity User #LightGreen {
+		name
+		photo
+		email
+	}
+}	
+
+package Domain #FEF {
+	entity Poll #LightCoral {
+	    id
+	}
+    entity Poll_Prop #LightCoral {
+        key
+        value
+    }
+    Poll_Prop "0.* " -l-> "1.1" Poll #Blue
+	entity Include #LightCoral {
+    }
+
+    Include "0.*" --> "1.1 + from" Poll #Green
+    Include "0.*" --> " 1.1 + to" Poll #Green
+    
+    package "Data Value"#EEF{
+        entity Question #2f2 {
+        }
+        entity Question_Prop #2f2 {
+            key
+            value 
+
+        }
+        Question_Prop "0.*" -u-> "1.1" Question #Blue
+        Question "0.*" -u-> "1.1" Poll 
+
+        entity Alternative  #5ff{
+        }
+        entity Alternative_Prop  #5ff{
+            key
+            value
+        }
+        Alternative_Prop "0.*"--> "1.1"Alternative #Blue
+        Alternative "0.*"-u->"  1.1" Question
+
+        entity Session #ff5{
+            start: Date
+            end: Date
+        }
+        Session  "0.*"--> "1.1   " User
+        Session "0.*\n"-u-> "1.1" Poll
+
+        entity Response #FB2{
+        }
+        entity Response_Prop #FB2{
+            key
+            value
+        }
+        Response_Prop "0.*  "-->"1.1" Response #Blue
+        Response "0.*"-u-> "1.1" Session
+        Response "0.*  "-u-> "1.1" Question
+    }
+
+right footer
+
+НТУУ КПІ ім.І.Сікорського
+Киів-2020 
+end footer
+
+@enduml

@@ -1,0 +1,80 @@
+@startuml UCD_1.0
+
+right header
+<font size=24 color=black>Package: <b>UCD_1.0
+
+end header
+
+title
+<font size=18 color=black>Аналітичний портал
+<font size=16 color=black>Діаграма прецедентів
+end title
+
+
+actor "Експерт"  as User #lightBlue
+actor "Редактор" as Collaborator #LightGreen
+actor "Аналітик" as Analyst #LightYellow
+actor "Автор" as Author #LightSalmon
+actor "Адміністратор" as Admin #Lightpink
+
+usecase "<b>UC_1</b>\nРеєстрація в системі" as UC_1  #lightBlue
+usecase "<b>UC_2</b>\nВхід в систему" as UC_2 #lightBlue
+usecase "<b>UC_3</b>\nПроходження опитування" as UC_3 #lightBlue
+usecase "<b>UC_4</b>\nРозповсюдження \n результатів опитування \n через соціальні мережі" as UC_4 #lightBlue
+usecase "<b>UC_5</b>\nОцюнювання якості поставленого опитування" as UC_5 #lightBlue
+usecase "<b>UC_6</b>\nАналіз результатів опитування" as UC_6  #LightYellow
+usecase "<b>UC_7</b>\nРедагувати опитування" as UC_7  #LightGreen
+usecase "<b>UC_8</b>\nСтворення опитування" as UC_8  #LightSalmon
+usecase "<b>UC_9</b>\nВидалення опитування" as UC_9   #LightSalmon
+usecase "<b>UC_10</b>\nРозробка опитування" as UC_10   #LightSalmon
+usecase "<b>UC_11</b>\nУправління конфігурацією \n  системи" as UC_11  #Lightpink
+
+note right of UC_3 #ccddee
+    Операція доступна для
+    зареєстрованого користувача, 
+    який здійснив вхід в систему
+end note
+
+User -u-> UC_3
+User -u-> UC_4
+User -u-> UC_2
+User -u-> UC_1
+User -l-> UC_5
+
+Analyst -l-|> User
+Analyst -> UC_6
+
+Collaborator -u-|> User
+Collaborator ->UC_7
+
+note left of Collaborator #bbffbb
+
+Редактор може редагувати звіт
+тільки у тому випадку,
+коли йому надано таке право
+
+end note
+
+Author ->UC_8
+Author -u->UC_9
+Author -u--|> Collaborator
+Author -u->UC_10
+
+note left of Author #eeddcc
+
+Автор може редагувати та видаляти
+лише власні звіти
+
+end note
+
+Admin -u-|> Author 
+Admin ->UC_11
+
+right footer
+
+Аналітичний портал. Модель прецедентів.
+НТУУ КПІ ім.І.Сікорського
+Киів-2020
+end footer
+
+@enduml

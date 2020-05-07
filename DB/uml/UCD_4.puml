@@ -1,0 +1,61 @@
+@startuml UCD_4.0
+
+right header
+<font size=24 color=black>Package:<b> UCD_4.0
+
+end header
+
+title
+<font size=18 color=black>UC_11. Редагувати конфігурацію порталу
+<font size=16 color=black>Діаграма прецедентів
+
+
+end title
+
+package UCD_1.0 {
+usecase "<b>UC_11</b>\nУправління конфігурацією \n  системи" as UC_11 #LightCoral
+}
+
+actor "Адміністратор" as Admin #Lightpink
+
+usecase "<b>UC_11.1</b>\nПошук акаунтів\n експертів" as UC_11.1 #FFAA99
+usecase "<b>UC_11.2</b>\nУправління змінними\n" as UC_11.2 #FFAA99
+usecase "<b>UC_11.3</b>\nЗмінювати інтерфейс системи" as UC_11.3 #FFAA99
+
+usecase "<b>UC_11.1.1</b>\nПереглянути список \n експертів" as UC_11.1.1 #EE8888
+
+usecase "<b>UC_11.1.1.1</b>\nЗастосувати фільтр\n" as UC_11.1.1.1 #EE6666
+
+usecase "<b>UC_11.1.1.2</b>\nДії з акаунтом \n експерта" as UC_11.1.1.2 #EE6666
+
+usecase "<b>UC_11.1.1.2.1</b>\nРедагувати права \n експертів" as UC_11.1.1.2.1 #Lightpink
+usecase "<b>UC_11.1.1.2.2</b>\nДодавати права \n експертів" as UC_11.1.1.2.2 #Lightpink
+usecase "<b>UC_11.1.1.2.3</b>\nВидаляти права \n експертів" as UC_11.1.1.2.3 #Lightpink
+usecase "<b>UC_11.1.1.2.4</b>\nBідобразити активність \n експертів" as UC_11.1.1.2.4 #Lightpink
+usecase "<b>UC_11.1.1.2.5</b>\nПереглянути статистику \n проходження опитувань" as UC_11.1.1.2.5  #Lightpink
+usecase "<b>UC_11.1.1.2.6</b>\nНалаштовувати систему \n надсиланя сповіщень \n експертам" as UC_11.1.1.2.6  #Lightpink
+
+Admin -l-> UC_11
+
+UC_11.1 <.u. UC_11: extends
+UC_11.2 <.u. UC_11: extends
+UC_11.3 <.u. UC_11: extends
+UC_11.1.1 <.u. UC_11.1: extends
+UC_11.1.1.1 <.l. UC_11.1.1: extends
+UC_11.1.1.2 <.u. UC_11.1.1: extends
+UC_11.1.1.2.1 .l.> UC_11.1.1.2 : include
+UC_11.1.1.2.2 .r.> UC_11.1.1.2 : include
+UC_11.1.1.2.3 .u.> UC_11.1.1.2: include
+UC_11.1.1.2.4 .u.> UC_11.1.1.2: include
+UC_11.1.1.2.5 ..>  UC_11.1.1.2: include
+UC_11.1.1.2.6 .u.> UC_11.1.1.2: include
+
+right footer
+
+
+Аналітичний портал. Модель прецедентів.
+НТУУ КПІ ім.І.Сікорського
+Киів-2020
+end footer
+ 
+@enduml

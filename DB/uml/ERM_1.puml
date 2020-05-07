@@ -1,0 +1,231 @@
+@startuml
+
+right header
+<font size=24 color=black>Package: <b>ERM_1.0
+
+end header
+
+title
+<font size=18 color=black> Аналітичний портал
+<font size=16 color=black>ER-модель 
+
+
+end title
+
+package "User Profile Management" #ffE {
+	entity User #LightGreen {
+		- name
+		photo
+		email
+	}
+}	
+	
+package "Global Settings" {
+	entity Variable #ffeeee {
+		- name
+		value
+	}
+}
+
+package Domain #FEF {
+	entity Poll #LightCoral {
+		- id
+        + timeProvided.id
+		name
+		isTemplate
+        report
+	}
+	package "Data Structurization" #EFF{
+		entity Tag #GoldenRod {
+			- name
+		}	
+		
+		entity Link	#GoldenRod {
+            + Poll.id
+            + Tag.name
+        }
+        Tag "1.1" <-- "0.*" Link #Brown
+        Link  "\n0.*" --> "1.1" Poll #Brown
+    }
+    package "Data Value"#EEF{
+    entity Task #FB2{
+        + Poll.id
+        + Question.id
+        + Choise.name
+    }
+
+
+    entity Question #LightSeaGreen {
+        - id
+        + timeProvided.id
+        + IsMultimedia.id
+        value 
+        isObligatory
+    }
+    Question "1.1" <-u- "0.*" Task  #Blue
+
+Package Answer#FEE{
+    entity Answer #0D0 {
+        - id
+        + Question.id
+        + IsMultimedia.id
+        + AnswerValue.name
+        + Choise.name
+        isExpertCorrect
+        isAnswerCorrect
+    }
+    entity AnswerValue #0D0 {
+        - name
+    }
+    object Your #white
+    object Author #white
+
+    entity Choise  #0D0{
+        - name
+    }
+    object single #white
+    object multiple #white
+}
+    entity IsMultimedia #5ff {
+        - id
+        + multimediaValue.name
+    }
+    entity multimediaValue #5ff {
+        - name
+    }
+    object picture #white
+    object video #white
+    object sound #white
+
+    picture .u.> multimediaValue :instanseOf
+    video .u.> multimediaValue :instanseOf
+    sound .u.> multimediaValue :instanseOf
+
+    IsMultimedia  "0.*"-->"0.1"multimediaValue #Blue
+    Question "0.*" --> "0.1" IsMultimedia #Red
+    IsMultimedia "0.1" <-- "\n0.*" Answer #Green
+
+    entity timeProvided #F84 {
+        - id
+        value
+    }
+
+    Question "1.1" -u-> "\n\n  0.*" Answer #Blue
+    Answer "0.*\n" -u-> "1.1" AnswerValue #Blue
+    Your  .u.> AnswerValue:instanseOf
+    Author  .u.> AnswerValue:instanseOf
+    Answer "0.*\n" -u-> "1.1" Choise #Blue
+    single .u.> Choise:\ninstanseOf
+    multiple .u.> Choise:\ninstanseOf
+    }
+
+    Task "0.*" -u-> "1.1    " Poll #Red
+        
+}
+package "Access Policy" #EFE{	
+
+    entity Role #LightBlue {
+        - name
+    }
+    object admin #White
+    object collaborator #White
+    object expert #White
+    object author #white
+    object analyst #white
+
+    admin ..> Role:instanseOf
+    collaborator ..> Role:instanseOf
+    expert ..> Role:instanseOf
+    author ..> Role:instanseOf
+    analyst ..> Role:instanseOf
+
+    entity Grant #9999FF {
+        + Role.name
+        + RequestType.name
+        
+    }
+    entity RequestType #9999FF{
+        - name
+        + OperationType.name
+        + ObjectType.name
+    }
+    entity OperationType #eeeeff{
+        - name
+    }
+
+    object read #white
+    object create #white
+    object delete #white
+    object update #white
+    object distribute #white
+
+    read  .u.>OperationType:instanseOf
+    create .u.>OperationType:instanseOf
+    delete .u.>OperationType:instanseOf
+    update .u.>OperationType:instanseOf
+    distribute .l.>OperationType:instanseOf
+
+    entity ObjectType #eeeeff{
+        - name
+    }
+
+    object poll #white
+    object question #white
+    object answer #white
+    object tag #white
+    object user #white
+    object role #white
+
+    poll ..>ObjectType:instanseOf
+    question ..>ObjectType:instanseOf
+    answer ..>ObjectType:instanseOf
+    tag ..>ObjectType:instanseOf
+    user ..>ObjectType:instanseOf
+    role ..>ObjectType:instanseOf
+
+    entity AccessWithAction #yellow {
+        + User.name
+        + Role.name
+        + Poll.id
+        + ObjectType.name
+        isTakePart
+        time.start
+        time.end
+    }
+note left of AccessWithAction 
+    AccessWithAction
+    можно розуміти як
+    характеристику Poll.
+    Якщо автор брав 
+    участь в створені,
+    isTakePart=True,
+    інакше False.
+    Застосовуеться для
+    всіх користувачів.
+    end note
+}   
+
+    Poll "0.1    " <-- "0.*" AccessWithAction #Red
+    AccessWithAction "0.*" -u->"1.1"User
+    
+    Role "1.1" -u-> "0.*"  AccessWithAction #Blue
+    AccessWithAction  "0.*" -> "0.1" ObjectType  #Red
+   
+    Question "0.*" --- "0.1" timeProvided #Green
+    timeProvided "0.1" -u- "0.*" Poll #Green
+   
+
+    Grant "0.*" -u-> "1.1" Role #Blue
+    Grant "0.*" --> "1.1" RequestType #Blue
+
+    OperationType "0.1" <-- "0.*" RequestType #Blue
+   
+    ObjectType "0.1" <-u- "0.*" RequestType #Blue
+    
+right footer
+
+НТУУ КПІ ім.І.Сікорського
+Киів-2020 
+end footer
+
+@enduml

@@ -1,0 +1,46 @@
+@startuml SD_1.0
+
+left header
+<font color=000 size=18><b>Package:</b> SD_1.0
+
+<font color=000 size=16><b>ID:</b> UC_3
+<font color=000 size=16><b>Назва:</b> Проходження опитування
+<font color=000 size=16><b>Учасники:</b> Експерт, Система
+<font color=000 size=16><b>Передумови:</b> Відсутні
+<font color=000 size=16><b>Результат:</b> Інформування про успішне завершення опитування
+<font color=000 size=16><b>Виключні ситуації:</b>
+<font color=000 size=16> EX_3.1 Опитування відсутнє
+<font color=000 size=16> EX_3.2 Користувач достроково покинув опитування
+
+<font color=000 size=16><b>Основний сценарій:</b>
+
+end header
+actor "Експерт" as expert
+control "Система" as system
+autonumber
+expert->system: ідентифікатор експерта
+
+note over system #aaffaa
+<font color=red><b> Можливо EX_3.1.
+end note
+
+system --> expert:питання для проходження опитування
+expert ->system:відповіді на поставлені запитання
+expert -> system:інформація про повне проходження опитування
+
+note over system, expert #LightBlue
+<font color=red><b> Можливо EX_3.2.
+end note
+
+system -> system :файл з даними\nпройденого опитування
+system --> expert :позначка про проходження опитування
+system --> expert :<b>інформація про успішне завершення опитування
+
+right footer
+Аналітичний портал. Модель прецедентів.
+НТУУ КПІ ім.І.Сікорського
+Киів-2020
+end footer
+
+@enduml
+

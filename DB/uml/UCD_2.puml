@@ -1,0 +1,41 @@
+@startuml UCD_2.0
+
+right header
+<font size=24 color=black>Package:<b> UCD_2.0
+
+end header
+
+title
+<font size=18 color=black>UC_6. Аналіз результатів опитування
+<font size=16 color=black>Діаграма прецедентів
+
+
+end title
+
+package UCD_1.0 {
+usecase "<b>UC_6</b>\nАналіз результатів опитування" as UC_6 #Yellow
+}
+
+actor "Аналітик" as Analyst #LightYellow
+
+usecase "<b>UC_6.1</b>\nУзагальнення результатiв" as UC_6.1
+usecase "<b>UC_6.2</b>\nПорівняння з \n попередніми результатами" as UC_6.2
+usecase "<b>UC_6.3</b>\nПрогназування \n майбутніх результатів" as UC_6.3
+usecase "<b>UC_6.4</b>\nФормування звіту" as UC_6.4
+
+UC_6.1 <.. UC_6: extends
+UC_6.2 <.r. UC_6: extends
+UC_6.3 <.u. UC_6: extends
+UC_6.4 .u.> UC_6: include
+
+Analyst -> UC_6
+
+
+right footer
+
+Аналітичний портал. Модель прецедентів.
+НТУУ КПІ ім.І.Сікорського
+Киів-2020
+end footer
+ 
+@enduml
