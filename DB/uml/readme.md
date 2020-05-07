@@ -1,3 +1,12 @@
+# Use case №1 #
+
+# Use case №2 #
+
+# Use case №3 #
+
+# Use case №4 #
+
+
 # Business Entity Model #
 
 ![](http://www.plantuml.com/plantuml/proxy?cache=yes&src=https://raw.githubusercontent.com/andreichenko256/Organizational-system-and-management-system/master/docs/uml/BEM_1_2.puml)
