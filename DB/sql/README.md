@@ -1,3 +1,3 @@
 # Schema to db #
 
-![schema](https://github.com/vano7577/University/new/master/DB/sql/schema.png)
+![ggg](https://github.com/vano7577/University/new/master/DB/sql/db_schema.png)
