@@ -1,0 +1,50 @@
+[
+    {   
+        "value":"Ваше ім'я",
+        "type":{
+            "isOligatory": true
+        }
+    },
+    {
+        "value": "Ваше призвіще",
+        "type":{
+            "isOligatory": true
+        }
+    },
+    {
+        "value": "Ваша дата народження",
+        "type":{
+            "isOligatory": false
+        }
+    },
+    {
+        "value": "Скільки у вас дітей?",
+        "type":{
+            "isOligatory": false
+        }
+    },
+    {
+        "value": "Ким ви працювали?",
+        "type":{
+            "isOligatory": false
+        }    
+    },
+    {
+        "value": "Ваш загальний стаж роботи",
+        "type":{
+            "isOligatory": true
+        }
+    },
+    {
+        "value": "Ваша освіта",
+        "type":{
+            "isOligatory": true
+        }
+    },
+    {
+        "value": "Який ВНЗ ви закінчили?",
+        "type":{
+            "isOligatory": false
+        }
+    }
+]
