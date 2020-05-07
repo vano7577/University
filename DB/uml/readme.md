@@ -9,7 +9,7 @@
 
 # Business Entity Model #
 
-![](http://www.plantuml.com/plantuml/proxy?cache=yes&src=https://raw.githubusercontent.com/andreichenko256/Organizational-system-and-management-system/master/docs/uml/BEM_1_2.puml)
+![](http://www.plantuml.com/plantuml/proxy?cache=yes&src=https://raw.githubusercontent.com/vano7577/University/master/DB/uml/BEM_1.puml)
 
 # Entity Relationship Model #
 
