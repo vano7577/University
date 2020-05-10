@@ -1,0 +1,10 @@
+[
+    {
+        "poll_id_from":1,
+        "poll_id_to":3
+    },
+    {
+        "poll_id_from":2,
+        "poll_id_to":3
+    }
+]

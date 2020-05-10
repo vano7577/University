@@ -1,0 +1,12 @@
+[
+    {
+        "name":"Kravchuk",
+        "photo":"../picture/Kravchuk.png",
+        "email":"kravchuk@gmail.com"
+    },
+    {
+        "name":"Kuchma",
+        "photo":"../picture/Kuchma.png",
+        "email":"kuchma@gmail.com"
+    }
+]

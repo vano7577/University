@@ -1,0 +1,138 @@
+[   
+    {
+        "value": "Леонід",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":1
+    },
+    {
+        "value": "Кравчук",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":2
+    },
+    {
+        "value": "1934-01-10T00:00:00.000Z",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":3
+    },
+    {
+        "value": "1",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":4
+    },
+    {
+        "value": "Голова Верховної Ради України, Президент України, Народний депутат України",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":5
+    },
+    {
+        "value": "50",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":6
+    },
+    {
+        "value": "Загальна освіта",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":true
+        },
+        "alternative_id":7
+    },
+    {
+        "value": "Професійна освіта",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":true
+        },
+        "alternative_id":8
+    },
+    {
+        "value": "Київський державний університет",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":false
+        },
+        "alternative_id":9
+    },
+    {
+        "value":"Національний технічний університет України «Київський політехнічний інститут імені Ігоря Сікорського»",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":false
+        },
+        "alternative_id":10
+    },
+    {
+        "value":"НАУ",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":false
+        },
+        "alternative_id":11
+    },
+    {
+        "value":"КНУКіМ",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":false
+        },
+        "alternative_id":12
+    },
+    {
+        "value": "Кучма",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":13
+    },
+    {
+        "value": "1938-08-09T00:00:00.000Z",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":14
+    },
+    {
+        "value": "Прем'єр-міністр, Президент України",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":15
+    },    
+    {
+        "value": "44",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        },
+        "alternative_id":16
+    },
+    {
+        "value": "Дніпровський національний університет",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":false
+        },
+        "alternative_id":17
+    }
+]

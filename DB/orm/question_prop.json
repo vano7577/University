@@ -1,0 +1,58 @@
+[
+    {   
+        "value":"Ваше ім'я",
+        "type":{
+            "isOligatory": true
+        },
+        "question_id": 1
+    },
+    {
+        "value": "Ваше призвіще",
+        "type":{
+            "isOligatory": true
+        },
+        "question_id": 2
+    },
+    {
+        "value": "Ваша дата народження",
+        "type":{
+            "isOligatory": false
+        },
+        "question_id": 3
+    },
+    {
+        "value": "Скільки у вас дітей?",
+        "type":{
+            "isOligatory": false
+        },
+        "question_id": 4
+    },
+    {
+        "value": "Ким ви працювали?",
+        "type":{
+            "isOligatory": false
+        },
+        "question_id": 5    
+    },
+    {
+        "value": "Ваш загальний стаж роботи",
+        "type":{
+            "isOligatory": true
+        },
+        "question_id": 6
+    },
+    {
+        "value": "Ваша освіта",
+        "type":{
+            "isOligatory": true
+        },
+        "question_id": 7
+    },
+    {
+        "value": "Який ВНЗ ви закінчили?",
+        "type":{
+            "isOligatory": false
+        },
+        "question_id": 8
+    }
+]
