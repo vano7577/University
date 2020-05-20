@@ -1,0 +1,272 @@
++++++++
++1)
++++++++
+SELECT
+    producer.name as 'Постачальник',
+    count(*) as  'Кількість поставок за звітний період'
+FROM
+    product
+LEFT JOIN 
+    producer ON product.producer = producer.id    
+LEFT JOIN
+    delivery ON product.id = delivery.product 
+GROUP BY
+    producer.name
+ORDER BY 2 DESC
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2 Отримати звіт по товарам з найвищою ціною поставки в діапазоні 50..100 грн
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select 
+	a.name `Товар`, 
+    max(d.price) `Ціна поставки (50..100 грн)`
+from  
+	product a
+inner join
+    delivery  d
+on
+	a.id=d.product  
+    and
+	price in (50, 100)
+group by a.name
+order by a.name desc
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+3 Отримати звіт по постачальникам та загальній кількості проданих одиниць товару
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select 
+producer.name as 'Постачальник',
+sum(sale.quantity) as 'Кількість одиниць проданого товару'
+from sale
+left join product on sale.product = product.id
+left join producer on  product.producer = producer.id
+group  by producer.id
+order by 2 desc, 1 asc
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4 Отримати загальну вартість поставок постачальника "тов пекар"
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SELECT
+    product.name as  'Товар (тов пекар)',
+    sum(delivery.quantity * delivery.price) `Загальна вартість (грн)`
+FROM
+    product
+LEFT JOIN
+    producer ON product.producer = producer.id
+LEFT JOIN
+    delivery ON product.id = delivery.product
+WHERE producer.name = "тов пекар"
+GROUP BY product.name
+ORDER BY 2 DESC
+++++++++++++++++++++++++++++++++++++++++++++++++
+5 Отримати звіт по поставленій кількості тортів
+++++++++++++++++++++++++++++++++++++++++++++++++
+SELECT
+    product.name as 'Товар (торти)',
+    count(*) as 'Кількість поставлених одиниць'
+FROM
+    product
+LEFT JOIN
+    delivery ON product.id = delivery.product
+WHERE product.name REGEXP '^торт'
+GROUP BY product.name
+order by 1 desc
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+6 Отримати загальну вартість поставок постачальника "тов пекар"
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SELECT
+    SUM(delivery.quantity * delivery.price)
+        AS 'Загальна вартість поставок "тов пекар"'
+FROM
+    product
+LEFT JOIN
+    delivery ON product.id = delivery.product
+LEFT JOIN
+    producer ON product.producer = producer.id
+WHERE producer.name = 'тов пекар'
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+7 Отримати перелік товарів, поставлених до 07.09.2020
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SELECT
+    product.name as 'Товар (поставки до 07.09.2020)'
+FROM
+    product
+LEFT JOIN
+    delivery ON product.id = delivery.product
+WHERE
+    delivery.date < '2019-09-07'
+    order by 1
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+8 Отримати звіт про найвищу ціну продажу для товарів в ціновому діапазоні 10..50 грн
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select
+    p.name as `Товар`,
+    max(s.cost) as `Найвища ціна продажу (діапазон 10..50 грн)`
+from
+    ( SELECT * FROM sale where cost between 10 and 50) as s
+left join product p on s.product = p.id
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+9 Отримати перелік постачальників, чий товар реалізовувався після 10.09.2020
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select  DISTINCT 
+    producer.name 'Постачальник (реалізований товар після 10.09.2020)'
+from  
+	producer
+left join product on producer.id=product.producer
+left join sale on  sale.product=product.id
+where sale.date > '2019.09.10'
+ORDER BY 1 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+10 Отримати звіт про середню ціну поставки товарів
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select  
+	name `Товар`,
+    avg(delivery.price) `Середня ціна поставки`
+from  
+	product
+left join delivery on product.id=delivery.product
+group by 1
+ORDER BY 2 desc
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+11 Отримати перелік постачальників, чиї товари реалізуються за найвищою ціною
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SELECT
+    producer.name as ' Постачальник (найвища ціна реалізації товару)'
+FROM
+    product
+LEFT JOIN
+    producer ON product.producer = producer.id
+LEFT JOIN
+    sale ON product.id = sale.product
+LEFT JOIN
+    delivery ON product.id = delivery.product
+GROUP BY producer.name
+ORDER BY SUM(sale.cost-delivery.price) DESC
+LIMIT 1
+++++++++++++++++++++++++++++++++++++++++++++++
+12 Отримати перелік неліквіднидних товарів
++++++++++++++++++++++++++++++++++++++++++++
+SELECT
+    product.name as Неліквідний товар
+FROM
+    product
+LEFT JOIN
+    sale ON product.id = sale.product
+WHERE sale.product IS NULL
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+13 Отримати перелік товарів з найнижчою ціною поставки
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select DISTINCT 
+	name `Товар (найнижча ціна поставки)`
+from  
+	product
+left join delivery on product.id=delivery.product
+where price = (select min(price) from delivery)
+ORDER BY name
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+14 Отримати звіт про залишки товарів (різницю між кількістю поставлених та проданих одиниць товарів)
+ за весь звітний період.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select a.name as `Продукт`, sum(p.quantity) as `Залишок`
+from (
+	select d.product as product, d.quantity as quantity 
+	from delivery d
+	union
+	select s.product as product, -s.quantity as quantity
+	from sale s
+) as p
+left join product a on p.product = a.id
+group by p.product
+order by 2 desc
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+15 Знайти товари, для яких здійснюються необліковані продажі 
+(кількість поставлених товарів менша ніж кількість проданих).+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select a.name
+from (
+	select d.product as product, d.quantity as quantity 
+	from delivery d
+	union
+	select s.product as product, -s.quantity as quantity
+	from sale s
+) as p
+left join product a on p.product = a.id
+group by p.product
+having sum(p.quantity) < 0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+16 Отримати звіт про постачальників товарів та їх розташування+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select 
+    p.name as Постачальник,
+    l.name as Розташування
+from 
+    producer p
+left join location l on p.location = l.id
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+17
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select
+    a.name as Товар (найбільший прибуток),
+    p.name as Постачальник
+from 
+    product a
+left join producer p on a.producer = p.id
+left join delivery d on a.id = d.product
+left join sale s on d.product = s.product
+group by p.name
+order by (s.cost-d.price) desc
+limit 1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+18 Отримати звіт для товарів та загальної суми реалізації >500 грн+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select  
+ a.name 'Товар', 
+    sum(s.cost*s.quantity) 'Загальна сума реалізації (>500)' 
+from 
+ product a
+left join sale s on a.id = s.product
+group by 1
+having 
+ sum(s.cost*s.quantity)> 500
+order by 2 desc
+++++++++++++++++++++++++++++++++++++++++++++++++++
+19 Отримати звіт про розташування постачальників
+++++++++++++++++++++++++++++++++++++++++++++++++++
+select  
+ l.name 'Розташування', 
+    count(*) 'Кількість постачальників'
+from 
+ location l
+left join producer p on l.id = p.location
+group by 1
+order by 2 desc
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+20 Отримати хронологічно впорядкований звіт про витрати та доходи поденно 
+(для тих днів, коли здійснювалися поставки та.або продажі) за весь період 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select dates.date as 'Дата',
+    ifnull(sum(d.price * d.quantity), 0) as 'Витрати',
+    ifnull(sum(s.cost * s.quantity), 0) as 'Дохід'
+from 
+    (select d.date as date
+    from delivery d
+    union
+    select s.date as date
+    from sale s) as dates
+left join delivery d on d.date = dates.date
+left join sale s on s.date = dates.date
+group by 1
+order by 1
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+21)Отримати звіт про товари з найбільшим ймовірним прибутком на одиницю товару 
+(найбільша різниця між мінімальною ціною продажу та максимальною ціною поставки)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+select p.name
+from product p
+left join sale s on p.id = s.product
+left join delivery d on p.id = d.product
+group by 1
+order by 
+    (ifnull(min(s.cost), 0)
+    -
+    ifnull(max(d.price), 0)) desc
+limit 2
