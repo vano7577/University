@@ -1,0 +1,12 @@
+[
+    {
+        "id_user":1,
+        "date":"2020-05-14",
+        "delivery":"bag"
+    },
+    {
+        "id_user":2,
+        "date":"2020-05-10",
+        "delivery":"envelop"
+    }
+]

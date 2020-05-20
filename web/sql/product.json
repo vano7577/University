@@ -1,0 +1,14 @@
+[
+    {
+        "name":"Coronavirus",
+        "price": 99999.99,
+        "discount": 0,
+        "picture":1
+    },
+    {
+        "name": "HIV",
+        "price": 10000,
+        "discount": 0.02,
+        "picture":2
+    }
+]
