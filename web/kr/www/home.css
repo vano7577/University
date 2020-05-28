@@ -1,0 +1,51 @@
+.cap
+{
+    font-family: sans-serif;
+    font-size: 14pt;
+    text-align: center;
+}
+
+.leftimg {
+    float: left; /* Выравнивание по левому краю */
+    margin: 10px 10px 10px 0; /* Отступы вокруг картинки */
+}
+
+
+    .virus1 {
+        white-space: pre-line; /* свойство white-space наследуется, применяется ко всем элементам */
+        width: 45%; /* Ширина контента */
+        padding: 15px; /* Поля */
+        background: #7AD3F5; /* Цвет фона */
+        border: 1px solid; /* Параметры рамки */
+        margin: 0;
+        display: inline-block; /* Строчно-блочный элемент */
+        /*box-sizing: border-box;*/
+        -moz-border-radius: 5px; /* Для Firefox 3 */
+        -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+        border-radius: 5px; /* Для современных браузеров */
+        transition: transform .2s; /* Animation */
+
+    }
+    .virus1:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+    .virus2 {
+        white-space: pre-line; /* свойство white-space наследуется, применяется ко всем элементам */
+        width: 22%; /* Ширина контента */
+        padding: 15px; /* Поля */
+        background: #7AD3F5; /* Цвет фона */
+        border: 1px solid; /* Параметры рамки */
+        margin: 0;
+        display: inline-block; /* Строчно-блочный элемент */
+        /*box-sizing: border-box;*/
+        -moz-border-radius: 5px; /* Для Firefox 3 */
+        -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+        border-radius: 5px; /* Для современных браузеров */
+        transition: transform .2s; /* Animation */
+
+    }
+    .virus2:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
+
