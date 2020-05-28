@@ -1,0 +1,90 @@
+.cap1
+{
+    font-family: sans-serif;
+    font-size: 14pt;
+    text-align: center;
+}
+.cap2
+{
+    font-family: sans-serif;
+    font-size: 14pt;
+    text-align: center;
+}
+.cap3
+{
+    font-family: sans-serif;
+    font-size: 14pt;
+    text-align: center;
+}
+.cap
+{
+    font-family: sans-serif;
+    font-size: 14pt;
+    text-align: center;
+}
+.leftimg {
+    float: left; /* Выравнивание по левому краю */
+    margin: 10px 10px 10px 0; /* Отступы вокруг картинки */
+}
+
+@media (max-width: 600px) {
+    .virus {
+        white-space: pre-line; /* свойство white-space наследуется, применяется ко всем элементам */
+        width: 95%; /* Ширина контента */
+        padding: 10px; /* Поля */
+        background: #7AD3F5; /* Цвет фона */
+        border: 1px solid; /* Параметры рамки */
+        margin: 20px;
+        display: inline-block; /* Строчно-блочный элемент */
+        /*box-sizing: border-box;*/
+        -moz-border-radius: 5px; /* Для Firefox 3 */
+        -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+        border-radius: 5px; /* Для современных браузеров */
+        transition: transform .2s; /* Animation */
+
+    }
+    .virus:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+    .virus {
+        white-space: pre-line; /* свойство white-space наследуется, применяется ко всем элементам */
+        width: 40%; /* Ширина контента */
+        padding: 10px; /* Поля */
+        background: #7AD3F5; /* Цвет фона */
+        border: 1px solid; /* Параметры рамки */
+        margin: 20px;
+        display: inline-block; /* Строчно-блочный элемент */
+        /*box-sizing: border-box;*/
+        -moz-border-radius: 5px; /* Для Firefox 3 */
+        -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+        border-radius: 5px; /* Для современных браузеров */
+        transition: transform .2s; /* Animation */
+    }
+    .virus:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+}
+
+@media (min-width: 1000px) {
+    .virus {
+        white-space: pre-line; /* свойство white-space наследуется, применяется ко всем элементам */
+        width: 25%; /* Ширина контента */
+        padding: 10px; /* Поля */
+        background: #7AD3F5; /* Цвет фона */
+        border: 1px solid; /* Параметры рамки */
+        margin: 20px;
+        display: inline-block; /* Строчно-блочный элемент */
+        /*box-sizing: border-box;*/
+        -moz-border-radius: 5px; /* Для Firefox 3 */
+        -webkit-border-radius: 5px; /* Для Safari 4 и Chrome */
+        border-radius: 5px; /* Для современных браузеров */
+        transition: transform .2s; /* Animation */
+    }
+    .virus:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+}
+
