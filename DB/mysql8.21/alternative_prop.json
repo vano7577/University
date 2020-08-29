@@ -1,0 +1,121 @@
+[   
+    {
+        "value": "Леонід",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "Кравчук",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "1934-01-10T00:00:00.000Z",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "1",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "Голова Верховної Ради України, Президент України, Народний депутат України",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "50",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "Загальна освіта",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "Професійна освіта",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "Київський державний університет",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":false
+        }
+    },
+    {
+        "value":"Національний технічний університет України «Київський політехнічний інститут імені Ігоря Сікорського»",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":false
+        }
+    },
+    {
+        "value":"НАУ",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":false
+        }
+    },
+    {
+        "value":"КНУКіМ",
+        "type":{
+            "isAuthorAnswer":false,
+            "isSingleChoise":false
+        }
+    },
+    {
+        "value": "Кучма",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "1938-08-09T00:00:00.000Z",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "Прем'єр-міністр, Президент України",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },    
+    {
+        "value": "44",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":true
+        }
+    },
+    {
+        "value": "Дніпровський національний університет",
+        "type":{
+            "isAuthorAnswer":true,
+            "isSingleChoise":false
+        }
+    }
+]
